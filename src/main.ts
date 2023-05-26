@@ -1,9 +1,11 @@
 import { invoke } from "@tauri-apps/api/tauri";
 
+let audioXmpl = new Audio("BWV_543-prelude.ogg");
 let greetInputEl: HTMLInputElement | null;
 let greetMsgEl: HTMLElement | null;
 
 async function greet() {
+  audioXmpl.play();
   if (greetMsgEl && greetInputEl) {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
     greetMsgEl.textContent = await invoke("greet", {
